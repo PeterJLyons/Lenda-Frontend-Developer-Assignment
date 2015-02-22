@@ -1,14 +1,15 @@
+
+
 <head>
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://rawgit.com/digitalBush/jquery.maskedinput/1.4.0/dist/jquery.maskedinput.js" type="text/javascript"></script>
     <style>
-    .backgroundImage
+    body
         {
-            font-family:"helvetica";
-            position:fixed;
-            border-style: none;
-            opacity:0.5;
-        
+            background-image:url(http://www.wallpapersct.com/wallpapers/2013/05/Skyline-Atlanta-Georgia-1024x1280.jpg);
+            border:none;
+            border-collapse: collapse;
+            border-spacing:0;
         }
     .inputBox
         {
@@ -22,6 +23,7 @@
         }
     .mainBody
         {
+            
             position: fixed;
             top: 25%;
             left: 41%;
@@ -38,12 +40,34 @@
             top: 25%;
             left: 44%;
         }
+    button
+        {
+            background-color: Transparent;
+            font-size: 20px;
+            color:#000;
+            opacity:0.5;
+            border: none;
+            outline:none;
+        }
+    .approvalText
+        {
+            font-family:"lucida console";
+           font-size: 20px;
+            opacity:0.5;
+            
+        }
+    .successful
+        {
+            top:20%;
+            left:40%;
+        }
     
     
     
     
     </style>
-<div class="backgroundImage"><img src = "http://www.wallpapersct.com/wallpapers/2013/05/Skyline-Atlanta-Georgia-1024x1280.jpg"></div>
+</head>
+        <body>
             <div class = "mainBody">
                 
                 <div class = "firstStep">
@@ -55,7 +79,7 @@
                 
                 <div class = "secondStep">
                     <center>
-                        <input type = "date" class = "inputBox" name = "DOB"/><br>
+                        <input type = "text" class = "inputBox" name = "DOB" placeholder = "When were you born?" onfocus = "(this.type='date')"/><br>
                         <button id = "dateSubmitter">Submit</button>
                     </center>
                 </div>
@@ -76,12 +100,13 @@
                 <div class = "successful">
                     <center>
                         <img src = "http://www.clker.com/cliparts/e/3/9/7/1245686792938124914raemi_Check_mark.svg.hi.png" height = "128" width = "128" alt = "You're done!">
-                        <br>You have been approved!
+                        <br>
+                        <div class = "approvalText">You have been approved!</div>
                     </center>
                 </div>
             </div>
         
-    
+</body>
     
     <script>
         var loadingScreen = $(".loading");
