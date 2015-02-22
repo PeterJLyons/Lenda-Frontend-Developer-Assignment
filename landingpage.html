@@ -1,157 +1,148 @@
+<!-- The design doc is a bit sparse, I just ran with whatever came to my mind. -->
+<html>
+    <head>
+        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://rawgit.com/digitalBush/jquery.maskedinput/1.4.0/dist/jquery.maskedinput.js" type="text/javascript"></script>
+        <style>
+            body
+                {
+                    background-image:url(http://www.wallpapersct.com/wallpapers/2013/05/Skyline-Atlanta-Georgia-1024x1280.jpg);
+                    border:none;
+                    border-collapse: collapse;
+                    border-spacing:0;
+                }
+            .inputBox
+                {
+                    background: rgba(255,255,255,1);
+                    border-color: #FFF;
+                    color: #000;
+                    opacity:0.5;
+                    font-size: 20px;
+                    height: 54px;
+                    text-align:center;
+                }
+            .mainBody
+                {
 
+                    position: fixed;
+                    top: 25%;
+                    left: 41%;
+                }
+            .loading
+                {
+                    position: fixed;
+                    top: 25%;
+                    left: 44%;
+                }
+            .successful
+                {
+                    position: fixed;
+                    top: 25%;
+                    left: 44%;
+                }
+            button
+                {
+                    background-color: Transparent;
+                    font-size: 20px;
+                    color:#000;
+                    opacity:0.5;
+                    border: none;
+                    outline:none;
+                }
+            .approvalText
+                {
+                    font-family:"lucida console";
+                   font-size: 20px;
+                    opacity:0.5;
 
-<head>
-    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://rawgit.com/digitalBush/jquery.maskedinput/1.4.0/dist/jquery.maskedinput.js" type="text/javascript"></script>
-    <style>
-    body
-        {
-            background-image:url(http://www.wallpapersct.com/wallpapers/2013/05/Skyline-Atlanta-Georgia-1024x1280.jpg);
-            border:none;
-            border-collapse: collapse;
-            border-spacing:0;
-        }
-    .inputBox
-        {
-            background: rgba(255,255,255,1);
-            border-color: #FFF;
-            color: #000;
-            opacity:0.5;
-            font-size: 20px;
-            height: 54px;
-            text-align:center;
-        }
-    .mainBody
-        {
-            
-            position: fixed;
-            top: 25%;
-            left: 41%;
-        }
-    .loading
-        {
-            position: fixed;
-            top: 25%;
-            left: 44%;
-        }
-    .successful
-        {
-            position: fixed;
-            top: 25%;
-            left: 44%;
-        }
-    button
-        {
-            background-color: Transparent;
-            font-size: 20px;
-            color:#000;
-            opacity:0.5;
-            border: none;
-            outline:none;
-        }
-    .approvalText
-        {
-            font-family:"lucida console";
-           font-size: 20px;
-            opacity:0.5;
-            
-        }
-    .successful
-        {
-            top:20%;
-            left:40%;
-        }
-    
-    
-    
-    
-    </style>
-</head>
-        <body>
-            <div class = "mainBody">
-                
-                <div class = "firstStep">
-                    <center>
-                        <input type = "text" class = "inputBox" name = "Name" placeholder = "What's your name?"/><br>
-                        <button id = "nameSubmitter">Submit</button> 
-                    </center>
-                </div>
-                
-                <div class = "secondStep">
-                    <center>
-                        <input type = "text" class = "inputBox" name = "DOB" placeholder = "When were you born?" onfocus = "(this.type='date')"/><br>
-                        <button id = "dateSubmitter">Submit</button>
-                    </center>
-                </div>
-                
-                <div class = "thirdStep">
-                    <center>
-                        <input type = "text" class = "inputBox" id = "SSN" placeholder = "Please input your SSN."/><br>
-                        <button id = "SSNSubmitter">Submit</button>
-                    </center>
-                </div>
-
-                <div class = "loading">
-                    <center>
-                        <img src = "http://static.tumblr.com/x7kksjv/Fxhn19di9/ajax-loader.gif" height = "128" width = "128" class = "image" alt = "loading...">
-                    </center>
-                </div>
-
-                <div class = "successful">
-                    <center>
-                        <img src = "http://www.clker.com/cliparts/e/3/9/7/1245686792938124914raemi_Check_mark.svg.hi.png" height = "128" width = "128" alt = "You're done!">
-                        <br>
-                        <div class = "approvalText">You have been approved!</div>
-                    </center>
-                </div>
+                }
+            .successful
+                {
+                    top:20%;
+                    left:40%;
+                }
+        </style>
+    </head>
+    <body>
+        <div class = "mainBody">
+            <div class = "firstStep">
+                <center>
+                    <input type = "text" class = "inputBox" name = "Name" placeholder = "What's your name?"/><br>
+                    <button id = "nameSubmitter">Submit</button> 
+                </center>
             </div>
-        
-</body>
-    
+            <div class = "secondStep">
+                <center>
+                    <input type = "text" class = "inputBox" name = "DOB" placeholder = "When were you born?" onfocus = "(this.type='date')"/>
+                    <br>
+                    <button id = "dateSubmitter">Submit</button>
+                </center>
+            </div>        
+            <div class = "thirdStep">
+                <center>
+                    <input type = "text" class = "inputBox" id = "SSN" placeholder = "Please input your SSN."/><br>
+                    <button id = "SSNSubmitter">Submit</button>
+                </center>
+            </div>
+
+            <div class = "loading">
+                <center>
+                <img src = "http://static.tumblr.com/x7kksjv/Fxhn19di9/ajax-loader.gif" height = "128" width = "128" class = "image" alt = "loading...">
+                </center>
+            </div>
+
+            <div class = "successful">
+                <center>
+                    <img src = "http://www.clker.com/cliparts/e/3/9/7/1245686792938124914raemi_Check_mark.svg.hi.png" height = "128" width = "128" alt = "You're done!">
+                    <br>
+                    <div class = "approvalText">You have been approved!</div>
+                </center>
+            </div>
+        </div>    
+    </body>
     <script>
-        var loadingScreen = $(".loading");
-        var finishedScreen = $(".successful");
-        var nameStep = $(".firstStep");
-        var dateStep = $(".secondStep");
-        var SSNStep = $(".thirdStep");
-        
-        $(document).ready(function()
-        {
+            var loadingScreen = $(".loading");
+            var finishedScreen = $(".successful");
+            var nameStep = $(".firstStep");
+            var dateStep = $(".secondStep");
+            var SSNStep = $(".thirdStep");
+            var mainBody = $(".mainBody");
 
-            loadingScreen.detach();
-            finishedScreen.detach();
-            SSNStep.detach();
-            dateStep.detach();
-            $("#SSN").mask("999-99-9999");
+            $(document).ready(function()
+            {
 
-        });
-        $("#nameSubmitter").click(function(e)
-            {
-                e.preventDefault();
-                nameStep.fadeOut(1000, function() {$(this).detach();});
-                dateStep.hide().appendTo(".mainBody").delay(1000).fadeIn(1000);
-            });
-        
-        $("#dateSubmitter").click(function(e)
-            {
-                e.preventDefault();
-                dateStep.fadeOut(1000, function() {$(this).detach();});
-                SSNStep.hide().appendTo(".mainBody").delay(1000).fadeIn(1000);
+                loadingScreen.detach();
+                finishedScreen.detach();
+                SSNStep.detach();
+                dateStep.detach();
                 $("#SSN").mask("999-99-9999");
-            });
-        
-        $("#SSNSubmitter").click(function(e)
-            {   
-
-                e.preventDefault();
-                SSNStep.fadeOut(1000, function() {$(this).detach();});
-                loadingScreen.hide().appendTo(".mainBody").delay(1000).fadeIn(1000);
-                setTimeout(function()
-                        {   
-                            loadingScreen.fadeOut(1000, function() {$(this).detach()});
-                            finishedScreen.hide().appendTo(".mainBody").delay(1000).fadeIn(1000);
-                        }, 5000);
 
             });
+            $("#nameSubmitter").click(function(e)
+                {
+                    e.preventDefault();
+                    nameStep.fadeOut(1000, function() {$(this).detach();});
+                    dateStep.hide().appendTo(mainBody).delay(1000).fadeIn(1000);
+                });
+
+            $("#dateSubmitter").click(function(e)
+                {
+                    e.preventDefault();
+                    dateStep.fadeOut(1000, function() {$(this).detach();});
+                    SSNStep.hide().appendTo(mainBody).delay(1000).fadeIn(1000);
+                    $("#SSN").mask("999-99-9999");
+                });
+
+            $("#SSNSubmitter").click(function(e)
+                {   
+                    e.preventDefault();
+                    SSNStep.fadeOut(1000, function() {$(this).detach();});
+                    loadingScreen.hide().appendTo(mainBody).delay(1000).fadeIn(1000);
+                    setTimeout(function()
+                            {   
+                                loadingScreen.fadeOut(1000, function() {$(this).detach()});
+                                finishedScreen.hide().appendTo(mainBody).delay(1000).fadeIn(1000);
+                            }, 5000);
+                });
     </script>
-</head>
+</html>
