@@ -7,27 +7,20 @@
             font-family:"helvetica";
             position:fixed;
             border-style: none;
+            opacity:0.5;
         
         }
     .inputBox
         {
             background: rgba(255,255,255,1);
-            border-color: #fff;
-            border-right: none;
+            border-color: #FFF;
             color: #000;
+            opacity:0.5;
             font-size: 20px;
             height: 54px;
+            text-align:center;
         }
-    .textStyle
-        {
-            color: white;
-            text-shadow:
-                -1px -1px 0 #000,  
-                1px -1px 0 #000,
-                -1px 1px 0 #000,
-                1px 1px 0 #000;
-        }
-    .firstStep
+    .mainBody
         {
             position: fixed;
             top: 25%;
@@ -52,19 +45,26 @@
     </style>
 <div class="backgroundImage"><img src = "http://www.wallpapersct.com/wallpapers/2013/05/Skyline-Atlanta-Georgia-1024x1280.jpg"></div>
             <div class = "mainBody">
+                
                 <div class = "firstStep">
-                    <div class = "welcome"><center>Welcome.</center
-                        </div>
-                    <form>
-
-                        <center>
-
-                            <input type = "text" class = "inputBox" name = "Name" placeholder = "What's your name?"/><br>
-                            <input type = "date" class = "inputBox" name = "DOB"/><br>
-                            <input type = "text" class = "inputBox" id = "SSN" placeholder = "Please input your SSN."/><br>
-                            <button id = "submitter">Submit!</button>
-                        </center>
-                    </form>
+                    <center>
+                        <input type = "text" class = "inputBox" name = "Name" placeholder = "What's your name?"/><br>
+                        <button id = "nameSubmitter">Submit</button> 
+                    </center>
+                </div>
+                
+                <div class = "secondStep">
+                    <center>
+                        <input type = "date" class = "inputBox" name = "DOB"/><br>
+                        <button id = "dateSubmitter">Submit</button>
+                    </center>
+                </div>
+                
+                <div class = "thirdStep">
+                    <center>
+                        <input type = "text" class = "inputBox" id = "SSN" placeholder = "Please input your SSN."/><br>
+                        <button id = "SSNSubmitter">Submit</button>
+                    </center>
                 </div>
 
                 <div class = "loading">
@@ -76,6 +76,7 @@
                 <div class = "successful">
                     <center>
                         <img src = "http://www.clker.com/cliparts/e/3/9/7/1245686792938124914raemi_Check_mark.svg.hi.png" height = "128" width = "128" alt = "You're done!">
+                        <br>You have been approved!
                     </center>
                 </div>
             </div>
@@ -85,20 +86,40 @@
     <script>
         var loadingScreen = $(".loading");
         var finishedScreen = $(".successful");
+        var nameStep = $(".firstStep");
+        var dateStep = $(".secondStep");
+        var SSNStep = $(".thirdStep");
         
         $(document).ready(function()
         {
 
             loadingScreen.detach();
             finishedScreen.detach();
+            SSNStep.detach();
+            dateStep.detach();
             $("#SSN").mask("999-99-9999");
 
         });
-        $("#submitter").click(function(e)
+        $("#nameSubmitter").click(function(e)
+            {
+                e.preventDefault();
+                nameStep.fadeOut(1000, function() {$(this).detach();});
+                dateStep.hide().appendTo(".mainBody").delay(1000).fadeIn(1000);
+            });
+        
+        $("#dateSubmitter").click(function(e)
+            {
+                e.preventDefault();
+                dateStep.fadeOut(1000, function() {$(this).detach();});
+                SSNStep.hide().appendTo(".mainBody").delay(1000).fadeIn(1000);
+                $("#SSN").mask("999-99-9999");
+            });
+        
+        $("#SSNSubmitter").click(function(e)
             {   
 
                 e.preventDefault();
-                $(".firstStep").fadeOut(1000, function() {$(this).detach();});
+                SSNStep.fadeOut(1000, function() {$(this).detach();});
                 loadingScreen.hide().appendTo(".mainBody").delay(1000).fadeIn(1000);
                 setTimeout(function()
                         {   
