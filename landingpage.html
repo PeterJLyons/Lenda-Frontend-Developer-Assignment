@@ -1,18 +1,61 @@
-<form>
-<center>
-Name!
-<input type = "text" name = "name!"/><br>
-Date of Birth!
-<input type = "text" name = "DOB"/><br>
-Social Security Number!
-<input type = "password" name = "SSN"/><br>
-<input type = "button" name = "submit" value = "Submit!" onclick = "return loadingpage()" />
-</center>
-</form>
+<head>
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
 
-<script>
-function loadingpage()
-{
-    window.location.href = "loadingpage.html";
-}
-</script>
+    <div class = "mainBody">
+    <div class = "firstStep">
+    <form>
+
+    <center>
+    Name!
+    <input type = "text" name = "name!"/><br>
+    Date of Birth!
+    <input type = "text" name = "DOB"/><br>
+    Social Security Number!
+    <input type = "password" name = "SSN"/><br>
+    <button id = "submitter">Submit!</button>
+    </center>
+    </form>
+    </div>
+   
+    <div class = "loading">
+    <center>
+    Loading submission in five seconds. This shouldn't show until button is pressed.
+    </center>
+    </div>
+
+    <div class = "successful">
+    <center>
+    Finished! you may now exit the browser.
+    </center>
+    </div>
+    </div>
+    
+    
+    <script>
+    var loadingScreen = $(".loading");
+    var finishedScreen = $(".successful");
+    $(document).ready(function()
+    {
+        
+        loadingScreen.detach();
+        finishedScreen.detach();
+                            
+    });
+    $("#submitter").click(function(e)
+        {   
+            
+            e.preventDefault();
+            $(".firstStep").detach();
+            $(".mainBody").append(loadingScreen);
+            setTimeout(function()
+                    {                
+                        loadingScreen.detach();
+                        $(".mainBody").append(finishedScreen);
+                    }, 5000);
+            
+        });
+    
+  
+    </script>
+</head>
